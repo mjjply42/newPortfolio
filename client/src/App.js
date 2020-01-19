@@ -12,7 +12,9 @@ const contactTag = "Matthew Jones        | mjjply2@gmail.com        | (510)-650-
 const Contact = () => {
   return (
     <div style={styles.contact}>
-      <Typography style={{marginTop: 30}}>{contactTag}</Typography>
+      <Typography style={{marginTop: 30, opacity: '0.5', color: 'white'}}>Matthew Jones</Typography>
+      <Typography style={{marginTop: 30, opacity: '0.5', color: 'white', marginLeft: 10, marginRight: 10}}>mjjply2@gmail.com</Typography>
+      <Typography style={{marginTop: 30, opacity: '0.5', color: 'white', marginLeft: 10}}>(510)-650-5167</Typography>
     </div>
   )
 }
@@ -50,7 +52,8 @@ const styles = {
   contact: {
     display: 'flex',
     justifyContent: 'center',
+    flexDirection: 'row',
+    flexWrap: 'wrap',
     alignContent: 'space-between',
-    width: 500,
   }
 }

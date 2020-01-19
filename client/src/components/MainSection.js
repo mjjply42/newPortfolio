@@ -7,29 +7,25 @@ import Avatar from '../img/intra_pic.jpg'
 const Main = () => {
     return (
         <div style={styles.mainComponentOuterDiv}>
-            <div style={styles.leftSideMainDiv}>
-                <div style={styles.leftSideInnerDiv}>
-                    <Typography style={{textAlign: 'left', fontSize: 40}}>Matthew Jones</Typography>
-                    <Typography style={{textAlign: 'left', fontSize: 23}}>Software Engineer</Typography>
-                    <Typography style={{textAlign: 'left', fontSize: 15}}>"I am an incredibly hardworking Front End Engineer, 
-                        with the utmost respect for user design principles and the
-                        ability to find solutions to user problems. I love programming and 
-                        I love being part of a team that I can learn and grow with."</Typography>
-                    <Typography style={{textAlign: 'left', fontSize: 17}}>mjjply2@gmail.com</Typography>
-                    <Typography style={{textAlign: 'left', fontSize: 17}}>(510)-650-5167</Typography>
-                </div>
-            </div>
             <div style={styles.rightSideMainDiv}>
                 <img style={styles.avatar} src={Avatar}></img>
+            </div>
+            <div style={styles.leftSideMainDiv}>
+                <div style={styles.leftSideInnerDiv}>
+                    <Typography style={{opacity: '0.8', textAlign: 'center', fontSize: 40}}>Matthew Jones</Typography>
+                    <Typography style={{opacity: '0.3', textAlign: 'center', fontSize: 23}}>Software Engineer</Typography>
+                </div>
             </div>
         </div>
     )
 }
 
-const Work = () => {
+const Projects = () => {
     return (
-        <div>
-            <h1>Work Div</h1>
+        <div style={styles.mainProjectContainer}>
+            <div style={styles.innerProjectContainer}>
+                <Typography style={{opacity: '0.8', fontSize: 30}}>Projects</Typography>
+            </div>
         </div>
     )
 }
@@ -38,7 +34,7 @@ export const MainSection = () => {
     return (
         <div style={styles.mainDivStyle}>
             <Route path={'/'} exact component={Main}/>
-            <Route path={'/projects'} exact component={Work}/>
+            <Route path={'/projects'} exact component={Projects}/>
         </div>
     )
 }
@@ -51,6 +47,18 @@ const styles = {
     mainComponentOuterDiv: {
         display: 'flex',
         alignContent: 'space-between',
+        flexWrap: 'wrap',
+        alignItems: 'center',
+        justifyContent: 'center',
+    },
+    mainProjectContainer: {
+        display: 'flex',
+        justifyContent: 'center',
+    },
+    innerProjectContainer: {
+        display: 'flex',
+        width: '86%',
+        marginTop: 50,
     },
     leftSideMainDiv: {
         display: 'flex',
@@ -62,12 +70,17 @@ const styles = {
     },
     leftSideInnerDiv: {
         width: '90%',
+        minWidth: '300',
+        alignItems: 'center',
+        justifyContent: 'center',
     },
     rightSideMainDiv: {
         width: '45%',
+        minWidth: 200,
     },
     avatar: {
         maxWidth: '100%',
+        minWidth: 200,
         maxHeight: 400,
         objectFit: 'cover',
         height: 450,
