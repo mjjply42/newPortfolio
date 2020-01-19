@@ -12,19 +12,19 @@ export const NavBar = () => {
     return (
         <div style={styles.navBarOuterDiv}>
             <Tooltip title="Home" placement="top" arrow>
-                <HomeIcon onClick={() => window.location.href = "/"} style={(window.location.pathname === '/' ? 
+                <HomeIcon className="nav-icons" onClick={() => window.location.href = "/"} style={(window.location.pathname === '/' ? 
                 styles.activeNavBarIcon : styles.inActiveNavBarIcon)} fontSize={'Large'}/>
             </Tooltip>
             <Tooltip title="Projects" placement="top" arrow>
-                <WorkIcon onClick={() => window.location.href = "/projects"} style={(window.location.pathname === '/projects' ? 
+                <WorkIcon className="nav-icons" onClick={() => window.location.href = "/projects"} style={(window.location.pathname === '/projects' ? 
                 styles.activeNavBarIcon : styles.inActiveNavBarIcon)} fontSize={'Large'}/>
             </Tooltip>
             <Tooltip title="Github" placement="top" arrow>
-                <GitHubIcon onClick={() => window.open("https://github.com/mjjply42", "_blank")} style={(window.location.pathname === '/github' ? 
+                <GitHubIcon className="nav-icons" onClick={() => window.open("https://github.com/mjjply42", "_blank")} style={(window.location.pathname === '/github' ? 
                 styles.activeNavBarIcon : styles.inActiveNavBarIcon)} fontSize={'Large'}/>
             </Tooltip>
             <Tooltip title="LinkedIn" placement="top" arrow>
-                <LinkedInIcon onClick={() => window.open("https://www.linkedin.com/in/matthew-jones-4682ab126/", "_blank")}  style={(window.location.pathname === '/linkedin' ? 
+                <LinkedInIcon className="nav-icons" onClick={() => window.open("https://www.linkedin.com/in/matthew-jones-4682ab126/", "_blank")}  style={(window.location.pathname === '/linkedin' ? 
                 styles.activeNavBarIcon : styles.inActiveNavBarIcon)} fontSize={'Large'}/>
             </Tooltip>
         </div>
