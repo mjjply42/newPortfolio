@@ -164,6 +164,7 @@ const styles = {
         justifyContent: 'center',
         alignItems: 'center',
         flexDirection: 'column',
+        minHeight: 140,
         minWidth: 300,
         height: 'auto',
     },
