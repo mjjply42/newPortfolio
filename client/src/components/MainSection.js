@@ -4,6 +4,7 @@ import { useDispatch, useSelector } from 'react-redux'
 import { Typography } from '@material-ui/core'
 import Divider from '@material-ui/core/Divider'
 import { makeStyles } from '@material-ui/core/styles'
+import useMediaQuery from '@material-ui/core/useMediaQuery'
 import Backdrop from '@material-ui/core/Backdrop'
 import Fade from '@material-ui/core/Fade'
 import Modal from '@material-ui/core/Modal'
@@ -35,13 +36,18 @@ const useStyles = makeStyles(theme => ({
   }));
 
 const Main = () => {
+    const matches600Min = useMediaQuery('(min-width:900px)')
+    useEffect(() => {
+        console.log(matches600Min)
+    },[matches600Min])
     return (
         <div style={styles.mainComponentOuterDiv}>
-            <div style={styles.rightSideMainDiv}>
-                <img style={styles.avatar} src={Avatar}></img>
-            </div>
             <div style={styles.leftSideMainDiv}>
-                <div style={styles.leftSideInnerDiv}>
+                <img style={(!matches600Min ? styles.circleAvatar : styles.avatar)} src={Avatar}></img>
+                {/*<Typography>GFHJK</Typography>*/}
+            </div>
+            <div style={styles.rightSideMainDiv}>
+                <div style={styles.rightSideInnerDiv}>
                     <Typography style={{opacity: '0.8', textAlign: 'center', fontSize: 40}}>Matthew Jones</Typography>
                     <Typography style={{opacity: '0.3', textAlign: 'center', fontSize: 23}}>Software Engineer</Typography>
                 </div>
@@ -65,32 +71,32 @@ const Projects = () => {
     const projectObj = [{
         image: MainHyperMap, name: "HyperMap", used: ["JavaScript", "React", "ExpressJS", "NodeJS", 
         "MongoDB", "Redis", "Heroku", "Google Docs API"], 
-        description: "The HyperMap web application gives an interactive conenction to all" +
+        description: "The HyperMap web application is an interactive conenction to all" +
         " of the data from current and future HyperLoop high speed transit systems around the globe."
-    },
-    {
-        image: VisualizerMain, name: "Sorting Visualizer", used: ["JavaScript", "React", "Redux", "ExpressJS", "NodeJS", 
-        "Sorting Algorithms", "MaterialUI", "Heroku"], 
-        description: "This was a fun visualizer to help give a more hands on feel about the " +
-        " different types of sorting algorithms, and how they sort data. This was a lot of fun!"
-    },
-    {
-        image: ComicClanMain, name: "Comic Clan", used: ["JavaScript", "React", "React Router", "Redux", "Redux Sagas", 
-        "ExpressJS", "NodeJS", "MaterialUI", "Heroku"], 
-        description: "Comic Clan is a web application that allows users to search through a small database of comics "+
-        "with multiple search features."
     },
     {
         image: MobielScreenMain, name: "Plug Mobile", used: ["JavaScript", "React", "React Navigation", "Redux", "Redux Sagas", 
         "React Native", "OpenCV", "React Native Paper", "Xcode", "Android Studio"], 
-        description: "Plug Mobile is a mobile app built out for our partner in the energy sector. This application monitors "+
+        description: "Plug Mobile is a mobile app built for a partner in the energy sector. This application monitors "+
         "a very specfic tool using an excellent UI and ML to gather large amounts of data from in-field workers."
     },
     {
         image: DashboardScreenMain, name: "Plug Dashboard Analytics", used: ["JavaScript", "React", "React Router", "Redux", "Redux Sagas", 
         "Google Maps API"], 
-        description: "An excellent dashboard for the analytics end of the Plug Mobile application. It provides extensive "+
+        description: "An intuitive and elegant dashboard for the analytics end of the Plug Mobile application. It provides extensive "+
         "graphing data and a detailed gallery for individual item inspection."
+    },
+    {
+        image: VisualizerMain, name: "Sorting Visualizer", used: ["JavaScript", "React", "Redux", "ExpressJS", "NodeJS", 
+        "MaterialUI", "Heroku"], 
+        description: "A nice Material UI based visualizer to help give a more hands on feel for the " +
+        " different sorting algorithms, and how they sort/sift data."
+    },
+    {
+        image: ComicClanMain, name: "Comic Clan", used: ["JavaScript", "React", "React Router", "Redux", "Redux Sagas", 
+        "ExpressJS", "NodeJS", "MaterialUI", "Heroku"], 
+        description: "Comic Clan provides great searchability and filtering for users to venture through a " +
+        "small comic book archive."
     },]
     return (
         <div style={styles.mainProjectContainer}>
@@ -141,21 +147,54 @@ export const MainSection = () => {
 const styles = {
     mainDivStyle: {
         backgroundColor: "white",
-        width: '70%',
+        maxWidth: 900,
         display: 'flex',
         alignItems: 'center',
         justifyContent: 'center',
-        minWidth: 300,
     },
     mainComponentOuterDiv: {
         display: 'flex',
-        alignContent: 'space-between',
         flexWrap: 'wrap',
         alignItems: 'center',
         justifyContent: 'center',
+        flexDirection: 'row',
+    },
+    rightSideMainDiv: {
+        display: 'flex',
+        justifyContent: 'center',
+        alignItems: 'center',
+        flexDirection: 'column',
+        minWidth: 300,
+        height: 'auto',
+    },
+    rightSideInnerDiv: {
+        minWidth: 300,
+        justifyContent: 'center',
+    },
+    leftSideMainDiv: {
+        display: 'flex',
+        minWidth: 200,
+    },
+    avatar: {
+        maxWidth: 600,
+        width: '100%',
+        minWidth: 200,
+        minHeight: 200,
+        objectFit: 'cover',
+        display: 'block',
+    },
+    circleAvatar: {
+        borderRadius: '50%',
+        maxWidth: '100%',
+        width: 250,
+        height: 250, 
+        minWidth: 200,
+        minHeight: 200,
+        objectFit: 'cover',
+        display: 'block',
+        margin: 20,
     },
     mainProjectContainer: {
-        display: 'flex',
         alignItems: 'center',
         flexDirection: 'column',
         width: '90%',
@@ -164,32 +203,6 @@ const styles = {
         display: 'flex',
         flexDirection: 'column',
         width: '100%',
-    },
-    leftSideMainDiv: {
-        display: 'flex',
-        justifyContent: 'center',
-        alignItems: 'center',
-        flexDirection: 'column',
-        width: '55%',
-        height: 'auto',
-    },
-    leftSideInnerDiv: {
-        width: '90%',
-        minWidth: '300',
-        alignItems: 'center',
-        justifyContent: 'center',
-    },
-    rightSideMainDiv: {
-        width: '45%',
-        minWidth: 200,
-    },
-    avatar: {
-        maxWidth: '100%',
-        minWidth: 200,
-        maxHeight: 400,
-        objectFit: 'cover',
-        height: 450,
-        display: 'block',
     },
     projectTitleDivider: {
         opacity: '0.2',
