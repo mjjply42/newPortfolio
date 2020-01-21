@@ -64,44 +64,40 @@ const Main = () => {
 }
 
 const Projects = () => {
-    const classes = useStyles()
-    const [open, setOpen] = React.useState(false)
     const matches600Min = useMediaQuery('(min-width:900px)')
     
-    const handleOpen = () => {
-        setOpen(true);
-    };
-
-    const handleClose = () => {
-        setOpen(false);
+    const openSiteLink = (link) => {
+        if (link === "")
+            return
+        window.open(link, "_blank")
     };
 
     const projectObj = [{
-        image: MainHyperMap, name: "HyperMap", used: ["JavaScript", "React", "ExpressJS", "NodeJS", 
+        image: MainHyperMap, name: "HyperMap", link: "https://hypermap.surge.sh/", used: ["JavaScript", "React", "ExpressJS", "NodeJS", 
         "MongoDB", "Redis", "Heroku", "Google Docs API"], 
         description: "The HyperMap web application is an interactive conenction to all" +
         " of the data from current and future HyperLoop high speed transit systems around the globe."
     },
     {
-        image: MobielScreenMain, name: "Plug Mobile", used: ["JavaScript", "React", "React Navigation", "Redux", "Redux Sagas", 
+        image: MobielScreenMain, name: "Plug Mobile", link: "", used: ["JavaScript", "React", "React Navigation", "Redux", "Redux Sagas", 
         "React Native", "OpenCV", "React Native Paper", "Xcode", "Android Studio"], 
         description: "Plug Mobile is a mobile app built for a partner in the energy sector. This application monitors "+
         "a very specfic tool using an excellent UI and ML to gather large amounts of data from in-field workers."
     },
     {
-        image: DashboardScreenMain, name: "Plug Dashboard Analytics", used: ["JavaScript", "React", "React Router", "Redux", "Redux Sagas", 
+        image: DashboardScreenMain, name: "Plug Dashboard Analytics", link: "", used: ["JavaScript", "React", "React Router", "Redux", "Redux Sagas", 
         "Google Maps API"], 
         description: "An intuitive and elegant dashboard for the analytics end of the Plug Mobile application. It provides extensive "+
         "graphing data and a detailed gallery for individual item inspection."
     },
     {
-        image: VisualizerMain, name: "Sorting Visualizer", used: ["JavaScript", "React", "Redux", "ExpressJS", "NodeJS", 
+        image: VisualizerMain, name: "Sorting Visualizer", link: "https://matthew-jones-sorting-viz.herokuapp.com/", used: ["JavaScript", "React", "Redux", "ExpressJS", "NodeJS", 
         "MaterialUI", "Heroku"], 
         description: "A nice Material UI based visualizer to help give a more hands on feel for the " +
         " different sorting algorithms, and how they sort/sift data."
     },
     {
-        image: ComicClanMain, name: "Comic Clan", used: ["JavaScript", "React", "React Router", "Redux", "Redux Sagas", 
+        image: ComicClanMain, name: "Comic Clan", link: "https://matthew-jones-comic-clan.herokuapp.com/", used: ["JavaScript", "React", "React Router", "Redux", "Redux Sagas", 
         "ExpressJS", "NodeJS", "MaterialUI", "Heroku"], 
         description: "Comic Clan provides great searchability and filtering for users to venture through a " +
         "small comic book archive."
@@ -129,7 +125,7 @@ const Projects = () => {
                                 })}
                             </div>
                             <div style={(matches600Min ? styles.projectImage : styles.projectImageSmall)}>
-                                <img onClick={handleOpen} style={styles.individualImage} src={item.image}></img>
+                                <img onClick={() => {openSiteLink(item.link)}} style={styles.individualImage} src={item.image}></img>
                             </div>
                             </>
                         )
