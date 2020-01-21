@@ -154,7 +154,7 @@ export const MainSection = () => {
 const styles = {
     mainDivStyle: {
         backgroundColor: "white",
-        maxWidth: 900,
+        maxWidth: 1300,
         display: 'flex',
         alignItems: 'center',
         justifyContent: 'center',
