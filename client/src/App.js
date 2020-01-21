@@ -46,7 +46,7 @@ const styles = {
     display: 'flex',
     alignItems: 'center',
     flexDirection: 'column',
-    marginTop: 80,
+    marginTop: 20,
   },
   contact: {
     display: 'flex',
