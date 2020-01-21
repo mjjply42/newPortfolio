@@ -19,7 +19,6 @@ import ComicClanMain from '../img/ComicClanMain.png'
 import MobielScreenMain from '../img/MobielScreenMain.png'
 import DashboardScreenMain from '../img/DashboardScreenMain.png'
 
-
 const useStyles = makeStyles(theme => ({
     modal: {
       display: 'flex',
@@ -35,6 +34,15 @@ const useStyles = makeStyles(theme => ({
     },
   }));
 
+const Contact = () => {
+    return (
+    <div style={styles.contact}>
+        <Typography style={{fontSize: 12, marginTop: 10, marginBottom: 10, opacity: '0.3', color: 'black', marginLeft: 10, marginRight: 10}}>mjjply2@gmail.com</Typography>
+        <Typography style={{fontSize: 12, marginTop: 10, marginBottom: 10, opacity: '0.3', color: 'black', marginLeft: 10}}>(510)-650-5167</Typography>
+    </div>
+    )
+}
+
 const Main = () => {
     const matches600Min = useMediaQuery('(min-width:900px)')
 
@@ -48,6 +56,7 @@ const Main = () => {
                 <div style={styles.rightSideInnerDiv}>
                     <Typography style={{opacity: '0.8', textAlign: 'center', fontSize: 40}}>Matthew Jones</Typography>
                     <Typography style={{opacity: '0.3', textAlign: 'center', fontSize: 23}}>Software Engineer</Typography>
+                    <Contact/>
                 </div>
             </div>
         </div>
@@ -255,4 +264,11 @@ const styles = {
         marginRight: 5,
         marginBottom: 10,
     },
+    contact: {
+        display: 'flex',
+        justifyContent: 'center',
+        flexDirection: 'row',
+        flexWrap: 'wrap',
+        alignContent: 'space-between',
+    }
 }

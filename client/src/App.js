@@ -7,24 +7,12 @@ import { MainSection } from './components/MainSection.js'
 import './App.css';
 import { Typography } from '@material-ui/core';
 
-const contactTag = "Matthew Jones        | mjjply2@gmail.com        | (510)-650-5167"
-
-const Contact = () => {
-  return (
-    <div style={styles.contact}>
-      <Typography style={{marginTop: 30, marginBottom: 30, opacity: '0.5', color: 'white', marginLeft: 10, marginRight: 10}}>mjjply2@gmail.com</Typography>
-      <Typography style={{marginTop: 30, marginBottom: 30, opacity: '0.5', color: 'white', marginLeft: 10}}>(510)-650-5167</Typography>
-    </div>
-  )
-}
-
 function App() {
   return (
       <div className="App" style={styles.backgroundStyle}>
         <div style={styles.mainContentContainer}>
           <NavBar/>
           <MainSection/>
-          <Contact/>
         </div>
       </div>
   );
@@ -48,11 +36,4 @@ const styles = {
     flexDirection: 'column',
     marginTop: 20,
   },
-  contact: {
-    display: 'flex',
-    justifyContent: 'center',
-    flexDirection: 'row',
-    flexWrap: 'wrap',
-    alignContent: 'space-between',
-  }
 }
