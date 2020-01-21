@@ -37,9 +37,7 @@ const useStyles = makeStyles(theme => ({
 
 const Main = () => {
     const matches600Min = useMediaQuery('(min-width:900px)')
-    useEffect(() => {
-        console.log(matches600Min)
-    },[matches600Min])
+
     return (
         <div style={styles.mainComponentOuterDiv}>
             <div style={styles.leftSideMainDiv}>
@@ -59,6 +57,7 @@ const Main = () => {
 const Projects = () => {
     const classes = useStyles()
     const [open, setOpen] = React.useState(false)
+    const matches600Min = useMediaQuery('(min-width:900px)')
     
     const handleOpen = () => {
         setOpen(true);
@@ -101,7 +100,6 @@ const Projects = () => {
     return (
         <div style={styles.mainProjectContainer}>
             <div style={styles.innerProjectContainer}>
-                <Typography style={{alignSelf: 'flex-start', marginTop: 40, opacity: '0.8', fontSize: 30}}>Projects</Typography>
                 <Divider style={styles.projectTitleDivider}/>
             </div>
             <div style={styles.individualOuterProjectDiv}>
@@ -109,7 +107,7 @@ const Projects = () => {
                     {projectObj.map((item, index) => {
                         return (
                             <>
-                            <div style={styles.projectDescription}>
+                            <div style={(matches600Min ? styles.projectDescription : styles.projectDescriptionSmall)}>
                                 <Typography style={{fontSize: '1.7em', textAlign: 'left', marginBottom: 20, marginTop: 30}}>{item.name}</Typography>
                                 <Typography style={{fontSize: '1em', textAlign: 'left', marginBottom: 20}}>{item.description}</Typography>
                                 <Typography style={{fontSize: '.65em', textAlign: 'left'}}></Typography>
@@ -121,7 +119,7 @@ const Projects = () => {
                                     )
                                 })}
                             </div>
-                            <div style={styles.projectImage}>
+                            <div style={(matches600Min ? styles.projectImage : styles.projectImageSmall)}>
                                 <img onClick={handleOpen} style={styles.individualImage} src={item.image}></img>
                             </div>
                             </>
@@ -207,7 +205,6 @@ const styles = {
     },
     projectTitleDivider: {
         opacity: '0.2',
-        backgroundColor: "black",
         marginBottom: 40,
     },
     individualOuterProjectDiv: {
@@ -224,13 +221,24 @@ const styles = {
         alignContent: 'space-between',
     },
     projectImage: {
-        width: '49%',
+        width: '45%',
+        minWidth: 243,
+        marginTop: 10,
+        marginBottom: 60,
+    },
+    projectImageSmall: {
+        width: '100%',
         minWidth: 243,
         marginTop: 10,
         marginBottom: 60,
     },
     projectDescription: {
-        width: '48%',
+        width: '45%',
+        minWidth: 243,
+        marginRight: 20,
+    },
+    projectDescriptionSmall: {
+        width: '100%',
         minWidth: 243,
         marginRight: 20,
     },
